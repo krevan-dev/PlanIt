@@ -14,7 +14,7 @@ class ProjectsService {
     return body
   }
 
-  async remove(id, id) {
+  async remove(projectId, userId) {
     throw new Error('Method not implemented.')
   }
 }
