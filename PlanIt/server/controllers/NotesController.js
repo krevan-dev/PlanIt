@@ -35,7 +35,7 @@ export class NotesController extends BaseController {
 
   async remove(req, res, next) {
     try {
-      await notesService.remove(req.params.taskId, req.userInfo.id)
+      await notesService.remove(req.params.noteId, req.userInfo.id)
       return res.send('Task has been deleted')
     } catch (error) {
       next(error)

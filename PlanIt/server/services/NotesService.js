@@ -1,3 +1,4 @@
+import { BadRequest } from '@bcwdev/auth0provider/lib/Errors'
 import { dbContext } from '../db/DbContext'
 
 class NotesService {
@@ -18,17 +19,20 @@ class NotesService {
  */
   async create(body) {
     const note = await dbContext.Notes.create(body)
-    await note.populate('creator', 'name picture')
     return note
   }
 
   /**
  * removes note from db
- * @param {String} taskId
- * @param {String} id Logged in user id
+ * @param {String} noteId
+ * @param {String} userId Logged in user id
  */
-  remove(taskId, id) {
-    throw new Error('Method not implemented.')
+  async remove(noteId, userId) {
+    const note = await dbContext.Notes.findById(noteId)
+    if (note.creatorId.toString() !== userId) {
+      throw new BadRequest('Unable to delete note.')
+    }
+    await dbContext.Notes.findOneAndRemove({ _id: noteId })
   }
 }
 
