@@ -1,6 +1,7 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import BaseController from '../utils/BaseController'
 import { sprintsService } from '../services/SprintsService'
+
 export class SprintsController extends BaseController {
   constructor() {
     super('api/projects/:projectId/sprints')
@@ -35,7 +36,7 @@ export class SprintsController extends BaseController {
   async remove(req, res, next) {
     try {
       await sprintsService.remove(req.params.sprintId, req.userInfo.id)
-      return res.send('Sprint Deleted.')
+      return res.send('Sprint has been deleted')
     } catch (error) {
       next(error)
     }

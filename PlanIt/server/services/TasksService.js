@@ -28,7 +28,8 @@ class TasksService {
     original.name = task.name || original.name
     original.isComplete = task.isComplete || original.isComplete
     original.sprintId = task.sprintId || original.sprintId
-    return task
+    await original.save()
+    return original
   }
 }
 

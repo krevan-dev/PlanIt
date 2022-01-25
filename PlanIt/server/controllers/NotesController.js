@@ -12,20 +12,33 @@ export class NotesController extends BaseController {
       .delete('/:noteId', this.remove)
   }
 
-  async getByProjectId(res, req, next) {
+  async getByProjectId(req, res, next) {
     try {
-      const note = await notesService.getByProjectId(req.params.projectId)
+      const note = await notesService.getAll({ projectId: req.params.projectId })
       return res.send(note)
     } catch (error) {
       next(error)
     }
   }
 
-  async create(res, req, next) {
-    throw new Error('Method not implemented.')
+  async create(req, res, next) {
+    try {
+      req.body.creatorId = req.userInfo.id
+      req.body.projectId = req.params.projectId
+      const note = await notesService.create(req.body)
+      note.creator = req.userInfo
+      return res.send(note)
+    } catch (error) {
+      next(error)
+    }
   }
 
-  async remove(res, req, next) {
-    throw new Error('Method not implemented.')
+  async remove(req, res, next) {
+    try {
+      await notesService.remove(req.params.taskId, req.userInfo.id)
+      return res.send('Task has been deleted')
+    } catch (error) {
+      next(error)
+    }
   }
 }

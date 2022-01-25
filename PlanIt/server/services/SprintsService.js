@@ -1,4 +1,4 @@
-import { BadRequest } from '@bcwdev/auth0provider/lib/Errors'
+import { BadRequest, Forbidden } from '@bcwdev/auth0provider/lib/Errors'
 import { dbContext } from '../db/DbContext'
 
 class SprintsService {
@@ -11,6 +11,11 @@ class SprintsService {
   }
 
   async create(body) {
+    // check for ownership of project
+    const project = await dbContext.Projects.findById(body.projectId)
+    if (project.creatorId.toString() !== body.creatorId) {
+      throw new Forbidden('You do not own that project')
+    }
     const sprint = await dbContext.Sprints.create(body)
     return sprint
   }
