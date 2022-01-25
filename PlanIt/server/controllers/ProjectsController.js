@@ -7,7 +7,7 @@ export class ProjectsController extends BaseController {
     super('api/projects')
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
-      .get('/:creatorId', this.getByCreatorId)
+      .get('', this.getByCreatorId)
       .get('/:projectId', this.getByProjectId)
       .post('', this.create)
       .delete('/:projectId', this.remove)
@@ -15,7 +15,7 @@ export class ProjectsController extends BaseController {
 
   async getByCreatorId(req, res, next) {
     try {
-      const project = await projectsService.getByCreatorId()
+      const project = await projectsService.getByCreatorId(req.userInfo.id)
       return res.send(project)
     } catch (error) {
       next(error)
@@ -24,7 +24,7 @@ export class ProjectsController extends BaseController {
 
   async getByProjectId(req, res, next) {
     try {
-      const project = await projectsService.getByProjectId()
+      const project = await projectsService.getByProjectId(req.params.projectId)
       return res.send(project)
     } catch (error) {
       next(error)
@@ -35,6 +35,7 @@ export class ProjectsController extends BaseController {
     try {
       req.body.creatorId = req.userInfo.id
       const project = await projectsService.create(req.body)
+      project.creator = req.userInfo
       return res.send(project)
     } catch (error) {
       next(error)
@@ -43,8 +44,7 @@ export class ProjectsController extends BaseController {
 
   async remove(req, res, next) {
     try {
-      req.body.creatorId = req.userInfo.id
-      await projectsService.remove(req.params.id, req.userInfo.id)
+      await projectsService.remove(req.params.projectId, req.userInfo.id)
       return res.send('Project deleted.')
     } catch (error) {
       next(error)

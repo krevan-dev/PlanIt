@@ -1,4 +1,5 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
+import { notesService } from '../services/NotesService'
 import BaseController from '../utils/BaseController'
 
 export class NotesController extends BaseController {
@@ -12,7 +13,12 @@ export class NotesController extends BaseController {
   }
 
   async getByProjectId(res, req, next) {
-    throw new Error('Method not implemented.')
+    try {
+      const note = await notesService.getByProjectId(req.params.projectId)
+      return res.send(note)
+    } catch (error) {
+      next(error)
+    }
   }
 
   async create(res, req, next) {
