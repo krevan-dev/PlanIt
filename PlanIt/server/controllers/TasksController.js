@@ -13,7 +13,7 @@ export class TasksController extends BaseController {
       .delete('/:taskId', this.remove)
   }
 
-  async getByProjectId(res, req, next) {
+  async getByProjectId(req, res, next) {
     try {
       const task = await tasksService.getByProjectId(req.params.projectId)
       return res.send(task)
@@ -22,7 +22,7 @@ export class TasksController extends BaseController {
     }
   }
 
-  async create(res, req, next) {
+  async create(req, res, next) {
     try {
       req.body.creatorId = req.userInfo.id
       req.body.projectId = req.params.projectId
@@ -36,9 +36,11 @@ export class TasksController extends BaseController {
     }
   }
 
-  async editTask(res, req, next) {
+  // REVIEW Cant get edit to pass the tests help lol
+  async editTask(req, res, next) {
     try {
-      req.body.id = req.params.id
+      req.body.creatorId = req.userInfo.id
+      req.body.taskId = req.params.taskId
       const task = await tasksService.edit(req.body)
       return res.send(task)
     } catch (error) {
@@ -46,7 +48,7 @@ export class TasksController extends BaseController {
     }
   }
 
-  async remove(res, req, next) {
+  async remove(req, res, next) {
     try {
       await tasksService.remove(req.params.taskId, req.userInfo.id)
       return res.send('Task Deleted.')

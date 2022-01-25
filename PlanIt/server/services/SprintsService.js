@@ -22,7 +22,6 @@ class SprintsService {
       throw new BadRequest('Unable to delete sprint.')
     }
     await dbContext.Sprints.findOneAndRemove({ _id: sprintId })
-    // return sprint
   }
 }
 

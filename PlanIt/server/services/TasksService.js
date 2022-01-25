@@ -3,9 +3,9 @@ import { dbContext } from '../db/DbContext'
 
 class TasksService {
   async getByProjectId(projectId) {
-    const task = await dbContext.Tasks.findOne({ projectId: projectId }).populate('creator')
+    const task = await dbContext.Tasks.find({ projectId: projectId }).populate('creator')
     if (!task) {
-      throw new BadRequest('Invalid Creator Id')
+      throw new BadRequest('Invalid Task Id')
     }
     return task
   }
@@ -16,20 +16,19 @@ class TasksService {
   }
 
   async remove(taskId, userId) {
-    const task = await this.getByProjectId(taskId)
+    const task = await dbContext.Tasks.findById(taskId)
     if (task.creatorId.toString() !== userId) {
       throw new BadRequest('Unable to delete task.')
     }
     await dbContext.Tasks.findOneAndRemove({ _id: taskId })
-    return task
   }
 
   async edit(task) {
-    const original = await this.getByProjectId(task.id)
-    original.body = task.body || original.body
+    const original = await dbContext.Tasks.findById(task.id)
+    original.name = task.name || original.name
     original.isComplete = task.isComplete || original.isComplete
     original.sprintId = task.sprintId || original.sprintId
-    return original
+    return task
   }
 }
 
