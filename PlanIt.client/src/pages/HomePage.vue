@@ -1,39 +1,41 @@
 <template>
-  <h2>Welcome to your project page!</h2>
-  <div class="container-fluid ineedmargin">
-    <div class="card m-4 projectcard shadow selectable">
-      <div class="card-body p-5">
-        <h5 class="card-title cardtitle">Project Name</h5>
-        <p class="card-text carddescription">
-          This is gonna be the super cool description of the project that we are
-          all super excited about.
-        </p>
+  <div v-if="account.id">
+    <h2>Welcome to your project page!</h2>
+    <div class="container-fluid ineedmargin">
+      <div class="card m-4 projectcard shadow selectable">
+        <div class="card-body p-5">
+          <h5 class="card-title cardtitle">Project Name</h5>
+          <p class="card-text carddescription">
+            This is gonna be the super cool description of the project that we are
+            all super excited about.
+          </p>
+        </div>
       </div>
-    </div>
 
-    <div class="card m-4 projectcard shadow selectable">
-      <div class="card-body p-5">
-        <h5 class="card-title cardtitle">Project Name</h5>
-        <p class="card-text carddescription">
-          This is gonna be the super cool description of the project that we are
-          all super excited about.
-        </p>
+      <div class="card m-4 projectcard shadow selectable">
+        <div class="card-body p-5">
+          <h5 class="card-title cardtitle">Project Name</h5>
+          <p class="card-text carddescription">
+            This is gonna be the super cool description of the project that we are
+            all super excited about.
+          </p>
+        </div>
       </div>
-    </div>
 
-    <div class="card m-4 projectcard shadow selectable">
-      <div class="card-body p-5">
-        <h5 class="card-title cardtitle">Project Name</h5>
-        <p class="card-text carddescription">
-          This is gonna be the super cool description of the project that we are
-          all super excited about.
-        </p>
+      <div class="card m-4 projectcard shadow selectable">
+        <div class="card-body p-5">
+          <h5 class="card-title cardtitle">Project Name</h5>
+          <p class="card-text carddescription">
+            This is gonna be the super cool description of the project that we are
+            all super excited about.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 
   <div
-    v-if="!account.id"
+    v-else
     class="
       home
       flex-grow-1
@@ -53,11 +55,6 @@
         Welcome to PlanIt. Please sign in to continue.
       </h1>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">Hi Mom</div>
-    <div class="col-md-4"></div>
   </div>
 </template>
 
