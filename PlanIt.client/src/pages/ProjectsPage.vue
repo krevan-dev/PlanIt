@@ -1,5 +1,5 @@
 <template>
-  <div class="component">
+  <div class="row">
     <div v-for="p in projects" :key="p.id" :project="p"></div>
   </div>
 </template>
