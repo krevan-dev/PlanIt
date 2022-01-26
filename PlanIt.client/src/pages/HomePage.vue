@@ -1,15 +1,13 @@
 <template>
-  <div v-if="account.id">
-    <h2>Welcome to your project page!</h2>
-    <div class="container-fluid ineedmargin">
-      <div class="card m-4 projectcard shadow selectable">
-        <div class="card-body p-5">
-          <h5 class="card-title cardtitle">Project Name</h5>
-          <p class="card-text carddescription">
-            This is gonna be the super cool description of the project that we are
-            all super excited about.
-          </p>
-        </div>
+  <h2 class="text-center m-4 welcome">💜 Welcome to your project page! 💜</h2>
+  <div class="container-fluid ineedmargin">
+    <div class="card m-4 projectcard shadow selectable">
+      <div class="card-body p-5">
+        <h5 class="card-title cardtitle">Project Name</h5>
+        <p class="card-text carddescription">
+          This is gonna be the super cool description of the project that we are
+          all super excited about.
+        </p>
       </div>
 
       <div class="card m-4 projectcard shadow selectable">
@@ -114,5 +112,10 @@ export default {
 
 .ineedmargin {
   margin-left: 3em;
+}
+
+.welcome {
+  font-family: "Dosis", sans-serif;
+  font-weight: 500;
 }
 </style>
