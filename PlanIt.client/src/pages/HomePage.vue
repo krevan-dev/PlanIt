@@ -10,28 +10,28 @@
             all super excited about.
           </p>
         </div>
+      </div>
 
-        <div class="card m-4 projectcard shadow selectable">
-          <div class="card-body p-5">
-            <h5 class="card-title cardtitle">Project Name</h5>
-            <p class="card-text carddescription">
-              This is gonna be the super cool description of the project that we are
-              all super excited about.
-            </p>
-          </div>
-        </div>
-
-        <div class="card m-4 projectcard shadow selectable">
-          <div class="card-body p-5">
-            <h5 class="card-title cardtitle">Project Name</h5>
-            <p class="card-text carddescription">
-              This is gonna be the super cool description of the project that we are
-              all super excited about.
-            </p>
-          </div>
+      <div class="card m-4 projectcard shadow selectable">
+        <div class="card-body p-5">
+          <h5 class="card-title cardtitle">Project Name</h5>
+          <p class="card-text carddescription">
+            This is gonna be the super cool description of the project that we are
+            all super excited about.
+          </p>
         </div>
       </div>
-    </div>
+
+      <div class="card m-4 projectcard shadow selectable">
+        <div class="card-body p-5">
+          <h5 class="card-title cardtitle">Project Name</h5>
+          <p class="card-text carddescription">
+            This is gonna be the super cool description of the project that we are
+            all super excited about.
+          </p>
+        </div>
+      </div>
+  </div>
 </div>
 
   <div
