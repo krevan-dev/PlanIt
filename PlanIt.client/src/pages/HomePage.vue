@@ -1,9 +1,9 @@
 <template>
   <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
     <div class="home-card p-5 bg-white rounded elevation-3">
-      <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo" class="rounded-circle">
-      <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        Vue 3 Starter
+      <img src="https://cdn.freelogodesign.org/files/cec092aaa70248eea0f51596bcf9f4ae/thumb/logo_200x200.png?v=0" alt="CodeWorks Logo" class="rounded-circle">
+      <h1 class="my-5 text-white p-3 rounded text-center signInCard">
+        Welcome to PlanIt. Please sign in to continue.
       </h1>
     </div>
   </div>
@@ -22,6 +22,7 @@ export default {
   place-content: center;
   text-align: center;
   user-select: none;
+  background-color: #777499;
   .home-card{
     width: 50vw;
     > img{
@@ -32,5 +33,10 @@ export default {
       object-position: center;
     }
   }
+}
+
+.signInCard{
+  background-color: #6b1592;
+  font-family: 'Dosis', sans-serif;
 }
 </style>
