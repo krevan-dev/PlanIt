@@ -1,6 +1,11 @@
+import { AppState } from "../AppState"
+import { api } from "./AxiosService"
+
 class ProjectsService {
-  async getProjects() {
-    // TODO get request for logged in user projects
+  async getProjects(query = '') {
+    const res = await api.get('api/projects' + query)
+    console.log(res.data)
+    // AppState.projects = res.data
   }
 
   async createProject(newProject) {
