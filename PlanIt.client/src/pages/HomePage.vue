@@ -1,7 +1,20 @@
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
+  <div
+    class="
+      home
+      flex-grow-1
+      d-flex
+      flex-column
+      align-items-center
+      justify-content-center
+    "
+  >
     <div class="home-card p-5 bg-white rounded elevation-3">
-      <img src="https://cdn.freelogodesign.org/files/cec092aaa70248eea0f51596bcf9f4ae/thumb/logo_200x200.png?v=0" alt="CodeWorks Logo" class="rounded-circle">
+      <img
+        src="https://cdn.freelogodesign.org/files/cec092aaa70248eea0f51596bcf9f4ae/thumb/logo_200x200.png?v=0"
+        alt="CodeWorks Logo"
+        class="rounded-circle"
+      />
       <h1 class="my-5 text-white p-3 rounded text-center signInCard">
         Welcome to PlanIt. Please sign in to continue.
       </h1>
@@ -16,16 +29,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.home{
+.home {
   display: grid;
   height: 80vh;
   place-content: center;
   text-align: center;
   user-select: none;
-  background-color: #777499;
-  .home-card{
+  background-color: #f3f3f3;
+  .home-card {
     width: 50vw;
-    > img{
+    > img {
       height: 200px;
       max-width: 200px;
       width: 100%;
@@ -35,8 +48,8 @@ export default {
   }
 }
 
-.signInCard{
+.signInCard {
   background-color: #6b1592;
-  font-family: 'Dosis', sans-serif;
+  font-family: "Dosis", sans-serif;
 }
 </style>

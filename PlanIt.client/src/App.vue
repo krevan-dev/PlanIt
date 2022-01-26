@@ -6,8 +6,8 @@
     <router-view />
   </main>
   <footer>
-    <div class="bg-dark text-light text-center p-4">
-      Made with 😭 by Maddy & Kyle
+    <div class="text-light text-center p-4 bottombar">
+      🌿 Made by Maddy & Kyle 🌿
     </div>
   </footer>
 </template>
@@ -26,5 +26,7 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
-
+.bottombar {
+  background-color: #290946;
+}
 </style>
