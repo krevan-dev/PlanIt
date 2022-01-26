@@ -1,5 +1,5 @@
 <template>
-  <h2>Welcome to your project page!</h2>
+  <h2 class="text-center m-4 welcome">💜 Welcome to your project page! 💜</h2>
   <div class="container-fluid ineedmargin">
     <div class="card m-4 projectcard shadow selectable">
       <div class="card-body p-5">
@@ -117,5 +117,10 @@ export default {
 
 .ineedmargin {
   margin-left: 3em;
+}
+
+.welcome {
+  font-family: "Dosis", sans-serif;
+  font-weight: 500;
 }
 </style>
