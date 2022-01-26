@@ -8,13 +8,30 @@
           all super excited about.
         </p>
       </div>
+  <div v-if="!account.id" class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
+    <div  class="home-card p-5 bg-white rounded elevation-3">
+      <img
+        src="https://cdn.freelogodesign.org/files/cec092aaa70248eea0f51596bcf9f4ae/thumb/logo_200x200.png?v=0"
+        alt="CodeWorks Logo"
+        class="rounded-circle"
+      />
+      <h1 class="my-5 text-white p-3 rounded text-center signInCard">
+        Welcome to PlanIt. Please sign in to continue.
+      </h1>
     </div>
   </div>
 </template>
 
 <script>
+import { computed } from '@vue/reactivity'
+import { AppState } from '../AppState'
 export default {
-  name: 'Home'
+  name: 'Home',
+  setup() {
+    return {
+      account: computed(() => AppState.account)
+    }
+  }
 }
 </script>
 
