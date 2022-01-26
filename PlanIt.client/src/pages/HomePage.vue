@@ -1,6 +1,7 @@
 <template>
-  <div class="container-fluid">
-    <div class="card m-4 projectcard">
+  <h2>Welcome to your project page!</h2>
+  <div class="container-fluid ineedmargin">
+    <div class="card m-4 projectcard shadow selectable">
       <div class="card-body p-5">
         <h5 class="card-title cardtitle">Project Name</h5>
         <p class="card-text carddescription">
@@ -8,8 +9,41 @@
           all super excited about.
         </p>
       </div>
-  <div v-if="!account.id" class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <div  class="home-card p-5 bg-white rounded elevation-3">
+    </div>
+
+    <div class="card m-4 projectcard shadow selectable">
+      <div class="card-body p-5">
+        <h5 class="card-title cardtitle">Project Name</h5>
+        <p class="card-text carddescription">
+          This is gonna be the super cool description of the project that we are
+          all super excited about.
+        </p>
+      </div>
+    </div>
+
+    <div class="card m-4 projectcard shadow selectable">
+      <div class="card-body p-5">
+        <h5 class="card-title cardtitle">Project Name</h5>
+        <p class="card-text carddescription">
+          This is gonna be the super cool description of the project that we are
+          all super excited about.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div
+    v-if="!account.id"
+    class="
+      home
+      flex-grow-1
+      d-flex
+      flex-column
+      align-items-center
+      justify-content-center
+    "
+  >
+    <div class="home-card p-5 bg-white rounded elevation-3">
       <img
         src="https://cdn.freelogodesign.org/files/cec092aaa70248eea0f51596bcf9f4ae/thumb/logo_200x200.png?v=0"
         alt="CodeWorks Logo"
@@ -63,10 +97,20 @@ export default {
 .projectcard {
   border-color: #8900ed;
   border-width: 5px;
+  width: 90%;
 }
 
 .cardtitle {
   font-family: "Dosis", sans-serif;
   font-weight: 500;
+  font-size: 24px;
+}
+
+.carddescription {
+  font-family: "Work Sans", sans-serif;
+}
+
+.ineedmargin {
+  margin-left: 3em;
 }
 </style>
