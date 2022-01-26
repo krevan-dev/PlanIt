@@ -1,4 +1,13 @@
 <template>
+  <div class="container-fluid">
+    <div class="card m-4 projectcard">
+      <div class="card-body p-5">
+        <h5 class="card-title cardtitle">Project Name</h5>
+        <p class="card-text carddescription">
+          This is gonna be the super cool description of the project that we are
+          all super excited about.
+        </p>
+      </div>
   <div v-if="!account.id" class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
     <div  class="home-card p-5 bg-white rounded elevation-3">
       <img
@@ -23,7 +32,7 @@ import { computed } from '@vue/reactivity'
 import { AppState } from '../AppState'
 export default {
   name: 'Home',
-  setup(){
+  setup() {
     return {
       account: computed(() => AppState.account)
     }
@@ -54,5 +63,15 @@ export default {
 .signInCard {
   background-color: #6b1592;
   font-family: "Dosis", sans-serif;
+}
+
+.projectcard {
+  border-color: #8900ed;
+  border-width: 5px;
+}
+
+.cardtitle {
+  font-family: "Dosis", sans-serif;
+  font-weight: 500;
 }
 </style>
