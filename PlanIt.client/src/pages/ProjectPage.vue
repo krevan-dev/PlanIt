@@ -1,5 +1,17 @@
 <template>
-  <div class="container-fluid"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="">
+          <h2 class="m-3">The Name of your Project</h2>
+          <p class="m-3">
+            The super awesome description of your project thats super cool and
+            not boring at all
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 
@@ -26,4 +38,11 @@ export default {
 
 
 <style lang="scss" scoped>
+i {
+  color: blueviolet;
+}
+
+h2 {
+  font-family: "Dosis", sans-serif;
+}
 </style>
