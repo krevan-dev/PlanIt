@@ -25,7 +25,7 @@
             </form>
           </div>
           <div>
-            <p class="sprintstag mx-3"><b>Sprints</b></p>
+            <p class="sprintstag mx-3"><b>-- Sprints --</b></p>
           </div>
         </div>
       </div>

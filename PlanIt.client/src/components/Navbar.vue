@@ -22,8 +22,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
-        <li>
-        </li>
+        <li></li>
       </ul>
       <span class="navbar-text">
         <button
