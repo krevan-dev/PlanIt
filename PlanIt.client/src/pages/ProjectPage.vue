@@ -7,7 +7,7 @@
             {{ project.name }}
             <i class="mdi mdi-delete selectable" @click="deleteProject()"></i>
           </h2>
-          <p class="m-3">
+          <p class="m-3 projectdesc">
             {{ project.description }}
           </p>
           <div class="d-flex justify-content-end px-5">
@@ -19,7 +19,9 @@
                 required="true"
                 class="border border-info border-2 m-3"
               />
-              <button type="submit" class="btn btn-outline-info">Create Sprint</button>
+              <button type="submit" class="btn btn-outline-info">
+                Create Sprint
+              </button>
             </form>
           </div>
           <div>
@@ -28,7 +30,7 @@
         </div>
       </div>
       <div class="col-md-12">
-        <Sprint v-for="s in sprints" :key="s.id" :sprint="s" class="mb-2"/>
+        <Sprint v-for="s in sprints" :key="s.id" :sprint="s" class="mb-2" />
       </div>
     </div>
   </div>
@@ -110,5 +112,9 @@ h2 {
 .modal-header {
   background-image: linear-gradient(#a94eff, #441471);
   font-family: "Dosis", sans-serif;
+}
+
+.projectdesc {
+  font-family: "Prompt", sans-serif;
 }
 </style>
