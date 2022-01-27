@@ -1,7 +1,9 @@
 <template>
   <div class="component">
-    {{sprint}}
-    <!-- {{tasks}} -->
+    <div>
+      <h3>{{sprint.name}}</h3>
+    </div>
+    {{tasks}}
   </div>
 </template>
 
@@ -18,7 +20,7 @@ export default {
   },
   setup(props){
     return {
-      // tasks: computed(() => AppState.tasks.filter(t => t.sprintId == props.sprint.id))
+      tasks: computed(() => AppState.tasks.filter(t => t.sprintId == props.sprint.id))
     }
   }
 }

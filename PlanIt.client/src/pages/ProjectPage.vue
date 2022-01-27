@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="col-md-12">
-        {{sprints}}
+        <Sprint class="col-md-12" v-for="s in sprints" :key="s.id" :sprint="s" />
       </div>
     </div>
   </div>
@@ -50,10 +50,12 @@ export default {
       tasks: computed(() => AppState.tasks),
       async deleteProject() {
         try {
-          await projectsService.deleteProject(route.params.id)
-          router.push({
-            name: "Home"
-          })
+          if (await Pop.confirm()) {
+            await projectsService.deleteProject(route.params.id)
+            router.push({
+              name: "Home"
+            })
+          }
         } catch (error) {
           Pop.toast(error.message, "error")
           logger.log(error)
