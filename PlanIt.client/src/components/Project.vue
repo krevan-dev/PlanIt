@@ -3,7 +3,7 @@
   <div class="container-fluid ineedmargin">
     <div class="card m-4 projectcard shadow selectable" @click="goToProject()">
       <div class="card-body p-5">
-        <h5 class="card-title cardtitle">{{project.name}}</h5>
+        <h3 class="card-title cardtitle">{{project.name}}</h3>
         <p class="card-text carddescription">
           {{project.description}}
         </p>

@@ -1,7 +1,7 @@
 <template>
   <div class="component">
     <div>
-      <h3>{{sprint.name}}</h3>
+      <h5>{{sprint.name}} <i class="mdi mdi-delete selectable" @click="deleteSprint"></i></h5>
     </div>
     {{tasks}}
   </div>
@@ -11,6 +11,8 @@
 <script>
 import { computed } from '@vue/reactivity'
 import { AppState } from '../AppState'
+import Pop from '../utils/Pop'
+import { sprintsService } from '../services/SprintsService'
 export default {
   props: {
     sprint: {
@@ -20,7 +22,18 @@ export default {
   },
   setup(props){
     return {
-      tasks: computed(() => AppState.tasks.filter(t => t.sprintId == props.sprint.id))
+      sprints: computed(() => AppState.sprints),
+      tasks: computed(() => AppState.tasks.filter(t => t.sprintId == props.sprint.id)),
+      async deleteSprint() {
+        try {
+          if (await Pop.confirm()) {
+            await sprintsService.deleteSprint(props.sprint.projectId, props.sprint.id)
+          }
+        } catch (error) {
+          Pop.toast(error.message, "error")
+          logger.log(error)
+        }
+      }
     }
   }
 }

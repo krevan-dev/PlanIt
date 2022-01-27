@@ -8,7 +8,16 @@
             {{project.description}}
           </p>
           <div class="d-flex justify-content-end px-5">
-          <button class="btn btn-outline-info">Create Sprint</button>
+            <form @submit.prevent="createSprint()">
+              <input
+                type="text"
+                placeholder="Sprint Name..."
+                v-model="newSprint.name"
+                required="true"
+                class="border border-info border-2 m-3"
+              />
+              <button type="submit" class="btn btn-outline-info">Create Sprint</button>
+            </form>
           </div>
         </div>
       </div>
@@ -21,7 +30,7 @@
 
 
 <script>
-import { computed, onMounted } from '@vue/runtime-core'
+import { computed, onMounted, ref } from '@vue/runtime-core'
 import { useRoute, useRouter } from 'vue-router'
 import { AppState } from '../AppState'
 import Pop from '../utils/Pop'
@@ -30,6 +39,7 @@ import { projectsService } from '../services/ProjectsService'
 import { sprintsService } from '../services/SprintsService'
 export default {
   setup() {
+    const newSprint = ref({})
     const route = useRoute()
     const router = useRouter()
     onMounted(async () => {
@@ -45,9 +55,18 @@ export default {
       //TODO get tasks based on route params id
     })
     return {
+      newSprint,
       project: computed(() => AppState.activeProject),
       sprints: computed(() => AppState.sprints),
       tasks: computed(() => AppState.tasks),
+      async createSprint() {
+        try {
+          await sprintsService.createSprint(route.params.id, newSprint.value)
+        } catch (error) {
+          Pop.toast(error.message, "error")
+          logger.log(error)
+        }
+      },
       async deleteProject() {
         try {
           if (await Pop.confirm()) {
