@@ -4,18 +4,18 @@ import { api } from "./AxiosService"
 class ProjectsService {
   async getProjects(query = '') {
     const res = await api.get('api/projects/' + query)
-    console.log(res.data)
+    // console.log(res.data)
     AppState.projects = res.data
   }
   async getProjectById(projectId) {
     const res = await api.get('api/projects/' + projectId)
-    console.log(res.data)
+    // console.log(res.data)
     AppState.activeProject = res.data
   }
 
   async createProject(newProject) {
     const res = await api.post('api/projects', newProject)
-    console.log(res.data)
+    // console.log(res.data)
     AppState.projects.push(res.data)
     return res.data.id
   }
