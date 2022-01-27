@@ -1,7 +1,5 @@
 <template>
-  <div class="container-fluid">
-    <p>hi mom</p>
-  </div>
+  <div class="container-fluid"></div>
 </template>
 
 
