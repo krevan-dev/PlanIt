@@ -86,7 +86,7 @@
         </div>
       </div>
       <div class="col-md-12">
-        <Sprint />
+        <Sprint v-for="s in sprints" :key="s.id" :sprint="s"/>
       </div>
     </div>
   </div>

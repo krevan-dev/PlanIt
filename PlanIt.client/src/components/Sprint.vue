@@ -1,10 +1,7 @@
 <template>
-  <div class="component">
-    <div>
-      <h5>{{sprint.name}} <i class="mdi mdi-delete selectable" @click="deleteSprint"></i></h5>
   <div class="card">
     <div class="card-header">
-      <!-- <h4>{{ sprint.name }}</h4> -->
+      <h5>{{sprint.name}}<i class="mdi mdi-delete selectable" @click="deleteSprint"></i></h5>
     </div>
     <div class="card-body">
       <!-- <p>{{ task.name }}<i class="mdi mdi-weight"></i>{{ task.weight }}</p> -->
