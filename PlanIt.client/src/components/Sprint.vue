@@ -1,9 +1,11 @@
 <template>
-  <div class="component">
-    <div>
-      <h3>{{sprint.name}}</h3>
+  <div class="card">
+    <div class="card-header">
+      <!-- <h4>{{ sprint.name }}</h4> -->
     </div>
-    {{tasks}}
+    <div class="card-body">
+      <!-- <p>{{ task.name }}<i class="mdi mdi-weight"></i>{{ task.weight }}</p> -->
+    </div>
   </div>
 </template>
 
@@ -18,7 +20,7 @@ export default {
       required: true
     }
   },
-  setup(props){
+  setup(props) {
     return {
       tasks: computed(() => AppState.tasks.filter(t => t.sprintId == props.sprint.id))
     }
@@ -28,5 +30,7 @@ export default {
 
 
 <style lang="scss" scoped>
-
+i {
+  color: #bd15e0;
+}
 </style>
