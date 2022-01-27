@@ -2,8 +2,8 @@
   <div class="card shadow">
     <div class="card-header text-light d-flex">
       <h5>
-        {{ sprint.name
-        }}<i class="mdi mdi-delete selectable" @click="deleteSprint()"></i>
+        {{ sprint.name }}
+        <i class="mdi mdi-delete selectable" @click="deleteSprint()"></i>
       </h5>
       <p class="m-0 px-3"><i class="mdi mdi-weight"></i> {{ tasksWeight }}</p>
     </div>
