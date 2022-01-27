@@ -1,6 +1,7 @@
 <template>
   <div class="d-flex justify-content-end">
     <i
+      style="font-size:25px"
       class="mdi mdi-message-bulleted selectable commentbutton m-2"
       type="button"
       data-bs-toggle="offcanvas"

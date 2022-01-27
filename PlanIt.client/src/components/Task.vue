@@ -1,19 +1,21 @@
 <template>
-  <div class="d-flex">
-    <input
-      v-model="task.isComplete"
-      class="form-check-input mx-1"
-      type="checkbox"
-      value=""
-      id="flexCheckDefault"
-      @click="taskCompleted()"
-    />
-    <h6>{{ task.name }}<i class="mdi mdi-weight"></i>{{ task.weight }}</h6>
-    <p class="px-2">
-      <i class="mdi mdi-delete selectable" @click="deleteTask()"></i>
-    </p>
+  <div class="d-flex justify-content-between">
+    <div class="d-flex">
+      <input
+        v-model="task.isComplete"
+        class="form-check-input mx-1"
+        type="checkbox"
+        value=""
+        id="flexCheckDefault"
+        @click="taskCompleted()"
+      /> <h6>{{ task.name }}<i class="mdi mdi-weight"></i>{{ task.weight }}</h6>
+      <p class="px-2"> <i class="mdi mdi-delete selectable" @click="deleteTask()"></i>
+      </p>
+    </div>
+    <div>
+      <Notes />
+    </div>
   </div>
-  <Notes />
 </template>
 
 
