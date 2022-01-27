@@ -1,6 +1,6 @@
 <template>
   <button
-    class="btn btn-info"
+    class="btn btn-outline-info"
     type="button"
     data-bs-toggle="offcanvas"
     data-bs-target="#offcanvasRight"
@@ -40,7 +40,9 @@
           required="true"
           class="border border-info border-2 m-3"
         />
-      <button type="submit" class="btn btn-info">Create My Project</button>
+        <button type="submit" class="btn btn-outline-info">
+          Create My Project
+        </button>
       </form>
     </div>
   </div>
@@ -62,10 +64,10 @@ export default {
           const id = await projectsService.createProject(newProject.value)
           router.push({
             name: "Project",
-            params: {id}
+            params: { id }
           })
         } catch (error) {
-          
+
         }
       }
     }

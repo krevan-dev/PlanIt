@@ -3,17 +3,23 @@
     <div class="row">
       <div class="col-md-12">
         <div class="">
-          <h2 class="m-3">{{project.name}} <i class="mdi mdi-delete selectable" @click="deleteProject()"></i></h2>
+          <h2 class="m-3">
+            {{ project.name }}
+            <i class="mdi mdi-delete selectable" @click="deleteProject()"></i>
+          </h2>
           <p class="m-3">
-            {{project.description}}
+            {{ project.description }}
           </p>
           <div class="d-flex justify-content-end px-5">
-          <button class="btn btn-outline-info">Create Sprint</button>
+            <button class="btn btn-outline-info">Create Sprint</button>
+          </div>
+          <div>
+            <p class="sprintstag"><b>Sprints</b></p>
           </div>
         </div>
       </div>
       <div class="col-md-12">
-        {{sprints}}
+        {{ sprints }}
       </div>
     </div>
   </div>
@@ -72,5 +78,9 @@ i {
 
 h2 {
   font-family: "Dosis", sans-serif;
+}
+
+.sprintstag {
+  color: blueviolet;
 }
 </style>
