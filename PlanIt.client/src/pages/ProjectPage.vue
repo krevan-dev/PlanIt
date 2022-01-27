@@ -17,7 +17,7 @@
                 placeholder="Sprint Name..."
                 v-model="newSprint.name"
                 required="true"
-                class="border border-info border-2 m-3"
+                class="m-3 rounded border border-info border-2"
               />
               <button type="submit" class="btn btn-outline-info">
                 Create Sprint

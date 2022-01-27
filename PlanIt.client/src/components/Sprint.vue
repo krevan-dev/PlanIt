@@ -5,11 +5,10 @@
         {{ sprint.name
         }}<i class="mdi mdi-delete selectable" @click="deleteSprint"></i>
       </h5>
-      <p class="m-0 px-3"><i class="mdi mdi-weight"></i> {{tasksWeight}}</p>
+      <p class="m-0 px-3"><i class="mdi mdi-weight"></i> {{ tasksWeight }}</p>
     </div>
     <div class="card-body">
-
-      <Task v-for="t in tasks" :key="t.id" :task="t"/>
+      <Task v-for="t in tasks" :key="t.id" :task="t" />
 
       <div class="createtaskmodal">
         <!-- Button trigger modal -->
@@ -43,24 +42,35 @@
                   aria-label="Close"
                 ></button>
               </div>
-                <form @submit.prevent="createTask()">
-              <div class="modal-body">
+              <form @submit.prevent="createTask()">
+                <div class="modal-body">
                   <p>What do I need to do today?</p>
-                  <input type="text" v-model="newTask.name" placeholder="Task..." required="true" />
+                  <input
+                    type="text"
+                    v-model="newTask.name"
+                    placeholder="Task..."
+                    required="true"
+                  />
                   <p>How hard is this task?</p>
-                  <input type="number" v-model="newTask.weight" min="1" max="10" required="true" />
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="submit" class="btn btn-info">Add Task</button>
-              </div>
-                </form>
+                  <input
+                    type="number"
+                    v-model="newTask.weight"
+                    min="1"
+                    max="10"
+                    required="true"
+                  />
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="submit" class="btn btn-info">Add Task</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -94,7 +104,7 @@ export default {
         let total = 0
         tasks.forEach(t => total += t.weight)
         return total
-        }), 
+      }),
       async deleteSprint() {
         try {
           if (await Pop.confirm()) {
@@ -121,7 +131,7 @@ export default {
 
 <style lang="scss" scoped>
 i {
-  color: #bd15e0;
+  color: #ef3eff;
 }
 
 .card-header {
@@ -132,6 +142,7 @@ i {
 .modal-header {
   // background-image: linear-gradient(#a94eff, #441471);
   background-image: url("https://thumbs.gfycat.com/ArcticFaintDairycow-size_restricted.gif");
+  background-position: center;
 }
 
 .modal-title {
