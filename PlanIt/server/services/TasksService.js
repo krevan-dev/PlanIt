@@ -26,7 +26,7 @@ class TasksService {
   async edit(task) {
     const original = await dbContext.Tasks.findById(task.id)
     original.name = task.name || original.name
-    original.isComplete = task.isComplete || original.isComplete
+    original.isComplete = task.isComplete
     original.sprintId = task.sprintId || original.sprintId
     await original.save()
     return original

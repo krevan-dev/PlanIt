@@ -60,9 +60,6 @@ export default {
         Pop.toast(error.message, "error")
         logger.log(error)
       }
-      //TODO get project based on route params id
-      //TODO get sprints based on route params id
-      //TODO get tasks based on route params id
     })
     return {
       newSprint,

@@ -120,6 +120,7 @@ export default {
       async createTask() {
         try {
           await tasksService.createTask(props.sprint.projectId, newTask.value)
+          newTask.value = {}
           Modal.getOrCreateInstance(document.getElementById('taskModal' + props.sprint.id)).hide()
         } catch (error) {
           Pop.toast(error.message, "error")
