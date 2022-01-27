@@ -67,4 +67,9 @@ export default {
   background-color: #6b1592;
   font-family: "Dosis", sans-serif;
 }
+
+.welcome {
+  font-family: "Dosis", sans-serif;
+  font-weight: 500;
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
 
   <div class="container-fluid ineedmargin">
-    <div class="card m-4 projectcard shadow selectable">
+    <div class="card m-4 projectcard shadow selectable" @click="goToProject()">
       <div class="card-body p-5">
         <h5 class="card-title cardtitle">{{project.name}}</h5>
         <p class="card-text carddescription">
@@ -15,8 +15,7 @@
 
 
 <script>
-import { computed } from '@vue/reactivity'
-import { AppState } from '../AppState'
+import { useRouter } from 'vue-router';
 export default {
   props: {
     project: {
@@ -24,8 +23,15 @@ export default {
       required: true,
     }
   },
-  setup(){
+  setup(props){
+    const router = useRouter();
     return {
+      goToProject(){
+        router.push({
+          name: "Project",
+          params: { id: props.project.id}
+        })
+      }
     }
   }
 }
@@ -51,10 +57,5 @@ export default {
 
 .ineedmargin {
   margin-left: 3em;
-}
-
-.welcome {
-  font-family: "Dosis", sans-serif;
-  font-weight: 500;
 }
 </style>

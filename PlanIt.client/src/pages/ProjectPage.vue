@@ -18,7 +18,7 @@ export default {
       //TODO get tasks based on route params id
     })
     return {
-      project: computed(() => AppState.activeProject)
+      // project: computed(() => AppState.activeProject)
       // sprints: computed(() => AppState.sprints)
       // tasks: computed(() => AppState.tasks)
     }

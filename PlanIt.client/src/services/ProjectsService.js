@@ -9,7 +9,9 @@ class ProjectsService {
   }
 
   async createProject(newProject) {
-    // TODO add new project to array & router push to new project page 
+    // TODO add new project to array & router push to new project page
+    const res = await api.post('api/projects')
+    console.log(res.data)
   }
 
   async deleteProject(projectId) {
