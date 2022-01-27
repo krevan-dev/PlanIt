@@ -3,15 +3,20 @@ import { api } from "./AxiosService"
 
 class ProjectsService {
   async getProjects(query = '') {
-    const res = await api.get('api/projects' + query)
+    const res = await api.get('api/projects/' + query)
     console.log(res.data)
     AppState.projects = res.data
   }
+  async getProjectById(projectId) {
+    const res = await api.get('api/projects/' + projectId)
+    console.log(res.data)
+    AppState.activeProject = res.data
+  }
 
   async createProject(newProject) {
-    // TODO add new project to array & router push to new project page
-    const res = await api.post('api/projects')
+    const res = await api.post('api/projects', newProject)
     console.log(res.data)
+    AppState.projects.unshift(res.data)
   }
 
   async deleteProject(projectId) {
