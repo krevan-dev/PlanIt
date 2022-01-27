@@ -25,30 +25,50 @@
       ></button>
     </div>
     <div class="offcanvas-body">
-      <form action="input">
+      <form @submit.prevent="createProject()">
         <input
           type="text"
           placeholder="Project Name..."
+          v-model="newProject.name"
           required="true"
           class="border border-info border-2 m-3"
         />
         <input
           type="text"
           placeholder="Description..."
+          v-model="newProject.description"
           required="true"
           class="border border-info border-2 m-3"
         />
+      <button type="submit" class="btn btn-info">Create My Project</button>
       </form>
-      <button class="btn btn-info">Create My Project</button>
     </div>
   </div>
 </template>
 
 
 <script>
+import { ref } from '@vue/reactivity'
+import { projectsService } from '../services/ProjectsService'
+import { useRouter } from 'vue-router'
 export default {
   setup() {
-    return {}
+    const newProject = ref({})
+    const router = useRouter()
+    return {
+      newProject,
+      async createProject() {
+        try {
+          const id = await projectsService.createProject(newProject.value)
+          router.push({
+            name: "Project",
+            params: {id}
+          })
+        } catch (error) {
+          
+        }
+      }
+    }
   }
 }
 </script>

@@ -3,12 +3,17 @@
     <div class="row">
       <div class="col-md-12">
         <div class="">
-          <h2 class="m-3">The Name of your Project</h2>
+          <h2 class="m-3">{{project.name}} <i class="mdi mdi-delete selectable" @click="deleteProject()"></i></h2>
           <p class="m-3">
-            The super awesome description of your project thats super cool and
-            not boring at all
+            {{project.description}}
           </p>
+          <div class="d-flex justify-content-end px-5">
+          <button class="btn btn-outline-info">Create Sprint</button>
+          </div>
         </div>
+      </div>
+      <div class="col-md-12">
+        {{sprints}}
       </div>
     </div>
   </div>
@@ -17,17 +22,20 @@
 
 <script>
 import { computed, onMounted } from '@vue/runtime-core'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { AppState } from '../AppState'
 import Pop from '../utils/Pop'
 import { logger } from '../utils/Logger'
 import { projectsService } from '../services/ProjectsService'
+import { sprintsService } from '../services/SprintsService'
 export default {
   setup() {
     const route = useRoute()
+    const router = useRouter()
     onMounted(async () => {
       try {
         await projectsService.getProjectById(route.params.id)
+        await sprintsService.getSprints(route.params.id)
       } catch (error) {
         Pop.toast(error.message, "error")
         logger.log(error)
@@ -37,9 +45,20 @@ export default {
       //TODO get tasks based on route params id
     })
     return {
-      project: computed(() => AppState.activeProject)
-      // sprints: computed(() => AppState.sprints)
-      // tasks: computed(() => AppState.tasks)
+      project: computed(() => AppState.activeProject),
+      sprints: computed(() => AppState.sprints),
+      tasks: computed(() => AppState.tasks),
+      async deleteProject() {
+        try {
+          await projectsService.deleteProject(route.params.id)
+          router.push({
+            name: "Home"
+          })
+        } catch (error) {
+          Pop.toast(error.message, "error")
+          logger.log(error)
+        }
+      }
     }
   }
 }

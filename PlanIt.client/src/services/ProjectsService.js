@@ -16,11 +16,13 @@ class ProjectsService {
   async createProject(newProject) {
     const res = await api.post('api/projects', newProject)
     console.log(res.data)
-    AppState.projects.unshift(res.data)
+    AppState.projects.push(res.data)
+    return res.data.id
   }
 
   async deleteProject(projectId) {
-    // TODO Filter from array and router push to main projects page
+    await api.delete('api/projects/' + projectId)
+    AppState.projects = AppState.projects.filter(p => p.id !== projectId)
   }
 }
 
