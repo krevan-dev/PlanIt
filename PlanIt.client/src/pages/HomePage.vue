@@ -1,7 +1,7 @@
 <template>
   <div v-if="account.id">
-    <h2 class="text-center m-4 welcome">💜 Welcome to your project page! 💜</h2>
-    <Project v-for="p in projects" :key="p" :project="p"/>
+    <h2 class="text-center m-4 welcome">💜 Welcome to your projects page! 💜</h2>
+    <Project v-for="p in projects" :key="p.id" :project="p"/>
   </div>
   <div
     v-else
@@ -66,28 +66,4 @@ export default {
   font-family: "Dosis", sans-serif;
 }
 
-.projectcard {
-  border-color: #8900ed;
-  border-width: 5px;
-  width: 90%;
-}
-
-.cardtitle {
-  font-family: "Dosis", sans-serif;
-  font-weight: 500;
-  font-size: 24px;
-}
-
-.carddescription {
-  font-family: "Work Sans", sans-serif;
-}
-
-.ineedmargin {
-  margin-left: 3em;
-}
-
-.welcome {
-  font-family: "Dosis", sans-serif;
-  font-weight: 500;
-}
 </style>

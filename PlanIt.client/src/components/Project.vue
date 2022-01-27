@@ -26,7 +26,6 @@ export default {
   },
   setup(){
     return {
-      projects: computed(() => AppState.projects)
     }
   }
 }
@@ -34,5 +33,28 @@ export default {
 
 
 <style lang="scss" scoped>
+.projectcard {
+  border-color: #8900ed;
+  border-width: 5px;
+  width: 90%;
+}
 
+.cardtitle {
+  font-family: "Dosis", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.carddescription {
+  font-family: "Work Sans", sans-serif;
+}
+
+.ineedmargin {
+  margin-left: 3em;
+}
+
+.welcome {
+  font-family: "Dosis", sans-serif;
+  font-weight: 500;
+}
 </style>
