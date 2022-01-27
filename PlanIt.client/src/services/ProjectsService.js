@@ -5,7 +5,7 @@ class ProjectsService {
   async getProjects(query = '') {
     const res = await api.get('api/projects' + query)
     console.log(res.data)
-    // AppState.projects = res.data
+    AppState.projects = res.data
   }
 
   async createProject(newProject) {
