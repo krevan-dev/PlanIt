@@ -1,39 +1,8 @@
 <template>
   <div v-if="account.id">
     <h2 class="text-center m-4 welcome">💜 Welcome to your project page! 💜</h2>
-    <div class="container-fluid ineedmargin">
-      <div class="card m-4 projectcard shadow selectable">
-        <div class="card-body p-5">
-          <h5 class="card-title cardtitle">Project Name</h5>
-          <p class="card-text carddescription">
-            This is gonna be the super cool description of the project that we are
-            all super excited about.
-          </p>
-        </div>
-      </div>
-
-      <div class="card m-4 projectcard shadow selectable">
-        <div class="card-body p-5">
-          <h5 class="card-title cardtitle">Project Name</h5>
-          <p class="card-text carddescription">
-            This is gonna be the super cool description of the project that we are
-            all super excited about.
-          </p>
-        </div>
-      </div>
-
-      <div class="card m-4 projectcard shadow selectable">
-        <div class="card-body p-5">
-          <h5 class="card-title cardtitle">Project Name</h5>
-          <p class="card-text carddescription">
-            This is gonna be the super cool description of the project that we are
-            all super excited about.
-          </p>
-        </div>
-      </div>
+    <Project v-for="p in projects" :key="p" :project="p"/>
   </div>
-</div>
-
   <div
     v-else
     class="
@@ -65,7 +34,8 @@ export default {
   name: 'Home',
   setup() {
     return {
-      account: computed(() => AppState.account)
+      account: computed(() => AppState.account),
+      projects: computed(() => AppState.projects)
     }
   }
 }
