@@ -10,9 +10,9 @@ class TasksService {
   }
 
   async createTask(projectId, newTask) {
-    const res = await api.post(`api/projects/${projectId}/tasks`, newTask)
+    const res = await api.post(`api/projects/${projectId}/tasks/`, newTask)
     logger.log(res.data)
-    AppState.tasks.push = res.data
+    AppState.tasks.push(res.data)
   }
 
   // async editTask() {

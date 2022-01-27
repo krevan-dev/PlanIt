@@ -3,7 +3,7 @@
     <div class="card-header text-light d-flex">
       <h5>
         {{ sprint.name
-        }}<i class="mdi mdi-delete selectable" @click="deleteSprint"></i>
+        }}<i class="mdi mdi-delete selectable" @click="deleteSprint()"></i>
       </h5>
       <p class="m-0 px-3"><i class="mdi mdi-weight"></i> {{ tasksWeight }}</p>
     </div>
@@ -16,7 +16,7 @@
           type="button"
           class="btn btn-outline-info"
           data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
+          :data-bs-target="'#taskModal' + sprint.id"
         >
           Create New Task +
         </button>
@@ -24,7 +24,7 @@
         <!-- Modal -->
         <div
           class="modal fade"
-          id="exampleModal"
+          :id="'taskModal' + sprint.id"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
@@ -86,6 +86,8 @@ import { AppState } from '../AppState'
 import Pop from '../utils/Pop'
 import { sprintsService } from '../services/SprintsService'
 import { tasksService } from '../services/TasksService'
+import { logger } from '../utils/Logger'
+import { Modal } from 'bootstrap'
 export default {
   props: {
     sprint: {
@@ -118,6 +120,7 @@ export default {
       async createTask() {
         try {
           await tasksService.createTask(props.sprint.projectId, newTask.value)
+          Modal.getOrCreateInstance(document.getElementById('taskModal' + props.sprint.id)).hide()
         } catch (error) {
           Pop.toast(error.message, "error")
           logger.log(error)
