@@ -72,6 +72,7 @@ export default {
       async createSprint() {
         try {
           await sprintsService.createSprint(route.params.id, newSprint.value)
+          newSprint.value = {}
         } catch (error) {
           Pop.toast(error.message, "error")
           logger.log(error)

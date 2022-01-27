@@ -1,14 +1,15 @@
 <template>
   <div class="card shadow">
-    <div class="card-header text-light">
+    <div class="card-header text-light d-flex">
       <h5>
         {{ sprint.name
         }}<i class="mdi mdi-delete selectable" @click="deleteSprint"></i>
       </h5>
+      <p class="m-0 px-3"><i class="mdi mdi-weight"></i> {{tasksWeight}}</p>
     </div>
     <div class="card-body">
 
-      <!-- <Task /> -->
+      <Task v-for="t in tasks" :key="t.id" :task="t"/>
 
       <div class="createtaskmodal">
         <!-- Button trigger modal -->
@@ -42,13 +43,12 @@
                   aria-label="Close"
                 ></button>
               </div>
+                <form @submit.prevent="createTask()">
               <div class="modal-body">
-                <form>
                   <p>What do I need to do today?</p>
-                  <input type="text" placeholder="Task..." required="true" />
+                  <input type="text" v-model="newTask.name" placeholder="Task..." required="true" />
                   <p>How hard is this task?</p>
-                  <input type="number" min="1" max="10" required="true" />
-                </form>
+                  <input type="number" v-model="newTask.weight" min="1" max="10" required="true" />
               </div>
               <div class="modal-footer">
                 <button
@@ -58,8 +58,9 @@
                 >
                   Close
                 </button>
-                <button type="button" class="btn btn-info">Add Task</button>
+                <button type="submit" class="btn btn-info">Add Task</button>
               </div>
+                </form>
             </div>
           </div>
         </div>
@@ -70,30 +71,43 @@
 
 
 <script>
-import { computed } from '@vue/reactivity'
+import { computed, ref } from '@vue/reactivity'
 import { AppState } from '../AppState'
 import Pop from '../utils/Pop'
 import { sprintsService } from '../services/SprintsService'
+import { tasksService } from '../services/TasksService'
 export default {
   props: {
     sprint: {
       type: Object,
       required: true
-    },
-    task: {
-      type: Object,
-      required: true
     }
   },
   setup(props) {
+    const newTask = ref({ sprintId: props.sprint.id })
     return {
+      newTask,
       sprints: computed(() => AppState.sprints),
       tasks: computed(() => AppState.tasks.filter(t => t.sprintId == props.sprint.id)),
+      tasksWeight: computed(() => {
+        const tasks = AppState.tasks.filter(t => t.sprintId == props.sprint.id && !t.isCompleted)
+        let total = 0
+        tasks.forEach(t => total += t.weight)
+        return total
+        }), 
       async deleteSprint() {
         try {
           if (await Pop.confirm()) {
             await sprintsService.deleteSprint(props.sprint.projectId, props.sprint.id)
           }
+        } catch (error) {
+          Pop.toast(error.message, "error")
+          logger.log(error)
+        }
+      },
+      async createTask() {
+        try {
+          await tasksService.createTask(props.sprint.projectId, newTask.value)
         } catch (error) {
           Pop.toast(error.message, "error")
           logger.log(error)
