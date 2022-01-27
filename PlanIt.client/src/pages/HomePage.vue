@@ -2,6 +2,7 @@
   <div v-if="account.id">
     <h2 class="text-center m-4 welcome">
       💜 Welcome to your projects page! 💜
+      <button class="btn btn-info mx-4">Create Project +</button>
     </h2>
     <Project v-for="p in projects" :key="p.id" :project="p" />
   </div>
@@ -65,6 +66,10 @@ export default {
 
 .signInCard {
   background-color: #6b1592;
+  font-family: "Dosis", sans-serif;
+}
+
+.welcome {
   font-family: "Dosis", sans-serif;
 }
 </style>

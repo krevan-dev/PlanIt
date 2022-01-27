@@ -7,7 +7,7 @@
   </main>
   <footer>
     <div class="text-light text-center p-4 bottombar">
-      🌿 Made by Maddy & Kyle 🌿
+      💜 Made by Maddy & Kyle 💜
     </div>
   </footer>
 </template>
