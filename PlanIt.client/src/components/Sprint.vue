@@ -2,8 +2,13 @@
   <div class="component">
     <div>
       <h5>{{sprint.name}} <i class="mdi mdi-delete selectable" @click="deleteSprint"></i></h5>
+  <div class="card">
+    <div class="card-header">
+      <!-- <h4>{{ sprint.name }}</h4> -->
     </div>
-    {{tasks}}
+    <div class="card-body">
+      <!-- <p>{{ task.name }}<i class="mdi mdi-weight"></i>{{ task.weight }}</p> -->
+    </div>
   </div>
 </template>
 
@@ -20,7 +25,7 @@ export default {
       required: true
     }
   },
-  setup(props){
+  setup(props) {
     return {
       sprints: computed(() => AppState.sprints),
       tasks: computed(() => AppState.tasks.filter(t => t.sprintId == props.sprint.id)),
@@ -41,5 +46,7 @@ export default {
 
 
 <style lang="scss" scoped>
-
+i {
+  color: #bd15e0;
+}
 </style>
