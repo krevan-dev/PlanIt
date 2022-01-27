@@ -1,13 +1,21 @@
 <template>
   <div v-if="account.id">
-    <h2 class="text-center m-4 welcome">💜 Welcome to your project page! 💜</h2>
+    <div class="d-flex justify-content-between">
+      <h2 class="text-center welcome m-3">
+        💜 Welcome to your project page! 💜
+      </h2>
+      <button class="btn btn-info m-3">New Project +</button>
+    </div>
     <div class="container-fluid ineedmargin">
-      <div class="card m-4 projectcard shadow selectable">
+      <div
+        class="card m-4 projectcard shadow selectable"
+        @click="goToProjectPage"
+      >
         <div class="card-body p-5">
           <h5 class="card-title cardtitle">Project Name</h5>
           <p class="card-text carddescription">
-            This is gonna be the super cool description of the project that we are
-            all super excited about.
+            This is gonna be the super cool description of the project that we
+            are all super excited about.
           </p>
         </div>
       </div>
@@ -16,8 +24,8 @@
         <div class="card-body p-5">
           <h5 class="card-title cardtitle">Project Name</h5>
           <p class="card-text carddescription">
-            This is gonna be the super cool description of the project that we are
-            all super excited about.
+            This is gonna be the super cool description of the project that we
+            are all super excited about.
           </p>
         </div>
       </div>
@@ -26,13 +34,13 @@
         <div class="card-body p-5">
           <h5 class="card-title cardtitle">Project Name</h5>
           <p class="card-text carddescription">
-            This is gonna be the super cool description of the project that we are
-            all super excited about.
+            This is gonna be the super cool description of the project that we
+            are all super excited about.
           </p>
         </div>
       </div>
+    </div>
   </div>
-</div>
 
   <div
     v-else

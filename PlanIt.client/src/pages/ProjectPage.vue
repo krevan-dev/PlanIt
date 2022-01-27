@@ -1,6 +1,6 @@
 <template>
-  <div class="component">
-      {{project}}
+  <div class="container-fluid">
+    <p>hi mom</p>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import { onMounted } from '@vue/runtime-core'
 import { useRoute } from 'vue-router'
 import { AppState } from '../AppState'
 export default {
-  setup(){
+  setup() {
     const route = useRoute()
     onMounted(() => {
       //TODO get project based on route params id
@@ -28,5 +28,4 @@ export default {
 
 
 <style lang="scss" scoped>
-
 </style>
