@@ -7,7 +7,8 @@
       </h5>
     </div>
     <div class="card-body">
-      <!-- <p>{{ task.name }}<i class="mdi mdi-weight"></i>{{ task.weight }}</p> -->
+
+      <!-- <Task /> -->
 
       <div class="createtaskmodal">
         <!-- Button trigger modal -->
@@ -76,6 +77,10 @@ import { sprintsService } from '../services/SprintsService'
 export default {
   props: {
     sprint: {
+      type: Object,
+      required: true
+    },
+    task: {
       type: Object,
       required: true
     }
