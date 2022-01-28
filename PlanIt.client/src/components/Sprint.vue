@@ -50,6 +50,7 @@
                     v-model="newTask.name"
                     placeholder="Task..."
                     required="true"
+                    class="form-control"
                   />
                   <p>How hard is this task?</p>
                   <input
