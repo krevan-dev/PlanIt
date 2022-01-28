@@ -1,23 +1,22 @@
 <template>
   <button
-    class="btn btn-info"
+    class="btn btn-primary"
     type="button"
     data-bs-toggle="offcanvas"
-    data-bs-target="#offcanvasRight"
-    aria-controls="offcanvasRight"
+    data-bs-target="#offcanvasTop"
+    aria-controls="offcanvasTop"
   >
-    <i class="mdi mdi-ballot-outline"></i>
-    All Projects
+    Toggle top offcanvas
   </button>
 
   <div
-    class="offcanvas offcanvas-end"
+    class="offcanvas offcanvas-top"
     tabindex="-1"
-    id="offcanvaslol"
-    aria-labelledby="offcanvasRightLabel"
+    id="offcanvasTop"
+    aria-labelledby="offcanvasTopLabel"
   >
-    <div class="offcanvas-header">
-      <h5 id="offcanvasRightLabel" class="text-light">All Projects</h5>
+    <div class="offcanvas-header text-center">
+      <h5 id="offcanvasTopLabel" class="text-light">All Projects</h5>
       <button
         type="button"
         class="btn-close text-reset"
@@ -25,12 +24,7 @@
         aria-label="Close"
       ></button>
     </div>
-    <div class="offcanvas-body">
-      <p>
-        all projects will go here that are selectable and can be routed to that
-        project page :,)
-      </p>
-    </div>
+    <div class="offcanvas-body">All projects will be populated here :)</div>
   </div>
 </template>
 
