@@ -1,4 +1,8 @@
 class NotesService {
+  async getNotes() {
+
+  }
+
 
 }
 

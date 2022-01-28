@@ -12,16 +12,20 @@
           </p>
           <div class="d-flex justify-content-end px-5">
             <form @submit.prevent="createSprint()">
+              <div class="form-control">
+                <div class="d-flex flex-row p-0 m-0">
               <input
                 type="text"
                 placeholder="Sprint Name..."
                 v-model="newSprint.name"
                 required="true"
-                class="m-3 rounded border border-info border-2"
+                class="m-3 rounded border border-info border-2 form-control"
               />
               <button type="submit" class="btn btn-outline-info">
-                Create Sprint
+                Create
               </button>
+                </div>
+              </div>
             </form>
           </div>
           <div>

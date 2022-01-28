@@ -7,7 +7,7 @@ export const TaskSchema = new Schema(
     weight: { type: Number, required: true },
     projectId: { type: Schema.Types.ObjectId, ref: 'Project', required: true },
     sprintId: { type: Schema.Types.ObjectId, ref: 'Sprint', required: true },
-    isComplete: { type: Boolean, required: true, default: false },
+    isComplete: { type: Boolean, default: false },
     creatorId: { type: Schema.Types.ObjectId, ref: 'Profile', required: true }
   },
   { timestamps: true, toJSON: { virtuals: true } }
