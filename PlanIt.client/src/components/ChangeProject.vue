@@ -1,12 +1,12 @@
 <template>
   <button
-    class="btn btn-primary"
+    class="btn btn-info"
     type="button"
     data-bs-toggle="offcanvas"
     data-bs-target="#offcanvasTop"
     aria-controls="offcanvasTop"
   >
-    Toggle top offcanvas
+    All Projects
   </button>
 
   <div

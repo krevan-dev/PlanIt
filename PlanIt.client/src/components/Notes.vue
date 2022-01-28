@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex justify-content-end">
     <i
-      style="font-size:25px"
+      style="font-size: 25px"
       class="mdi mdi-message-bulleted selectable commentbutton m-2"
       type="button"
       data-bs-toggle="offcanvas"
@@ -41,16 +41,9 @@
       <button class="btn btn-outline-info mx-4">Note!</button>
 
       <div class="card shadow border border-info border-2 p-2 m-4">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/en/d/d7/Harry_Potter_character_poster.jpg"
-          class="fakeimg"
-          alt=""
-        />
-        <h4>Harry Potter</h4>
-        <p>
-          Don't forget the pumpkin pie again Gandalf. I WON'T LET YOU DISAPPOINT
-          ME AGAIN!
-        </p>
+        <img src="account picture" class="fakeimg" alt="" />
+        <h4>account name</h4>
+        <p>Note</p>
       </div>
       <div class="card shadow border border-info border-2 p-2 m-4">
         <img
@@ -85,9 +78,21 @@
 
 
 <script>
+import { AppState } from '../AppState.js'
+import { computed, ref } from '@vue/reactivity'
 export default {
-  setup() {
-    return {}
+  props: {
+    note: {
+      type: Object,
+      required: true
+    }
+  },
+  setup(props) {
+    const newNote = ref({ taskId: props.task.id })
+    return {
+      newNote,
+      notes: computed(() => AppState.notes)
+    }
   }
 }
 </script>
