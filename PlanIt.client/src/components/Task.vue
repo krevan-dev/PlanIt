@@ -65,8 +65,7 @@ export default {
       },
       async editTask(newSprintId) {
         try {
-          debugger
-          await tasksService.editTask(props.task.projectId, props.task.id, newSprintId)
+          await tasksService.editTask(props.task, newSprintId)
         } catch (error) {
           Pop.toast(error.message, "error")
           logger.log(error)

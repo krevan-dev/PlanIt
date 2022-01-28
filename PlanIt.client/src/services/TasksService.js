@@ -15,35 +15,11 @@ class TasksService {
     AppState.tasks.push(res.data)
   }
 
-
-
-
-
-
-
-
-
-
-
-
-  async editTask(projectId, taskId, newSprintId) {
-    AppState.tasks.sprintId = newSprintId
-    const res = await api.put(`api/projects/${projectId}/tasks/${taskId}`)
+  async editTask(task, newSprintId) {
+    task.sprintId = newSprintId
+    const res = await api.put(`api/projects/${task.projectId}/tasks/${task.id}`, task)
     logger.log(res.data)
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   async deleteTask(projectId, taskId) {
     await api.delete(`api/projects/${projectId}/tasks/${taskId}`)
@@ -53,7 +29,6 @@ class TasksService {
   async taskCompleted(task) {
     task.isComplete = !task.isComplete
     await api.put(`api/projects/${task.projectId}/tasks/${task.id}`, task)
-    // logger.log(task.isComplete)
   }
 }
 
