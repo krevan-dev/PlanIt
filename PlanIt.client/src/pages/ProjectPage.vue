@@ -3,6 +3,9 @@
     <div class="row">
       <div class="col-md-12">
         <div class="">
+          <div class="d-flex justify-content-end mx-5 my-2">
+            <ChangeProject />
+          </div>
           <h2 class="m-3">
             {{ project.name }}
             <i class="mdi mdi-delete selectable" @click="deleteProject()"></i>
